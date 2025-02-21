@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("people")
 public class PersonController {
@@ -49,8 +49,7 @@ public class PersonController {
         Planet planet = this.planetRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Could not find planet with given id"));
         person.setPlanet(planet);
 
-        updatePerson.setFirstName(person.getFirstName());
-        updatePerson.setLastName(person.getLastName());
+        updatePerson.setName(person.getName());
         updatePerson.setAge(person.getAge());
         updatePerson.setDescription(person.getDescription());
         updatePerson.setAlive(person.isAlive());

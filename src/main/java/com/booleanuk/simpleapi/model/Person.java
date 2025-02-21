@@ -20,10 +20,7 @@ public class Person {
     private int id;
 
     @Column
-    private String firstName;
-
-    @Column
-    private String lastName;
+    private String name;
 
     @Column
     private int age;

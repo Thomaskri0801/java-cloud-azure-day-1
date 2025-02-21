@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.1'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'com.microsoft.azure.azurewebapp' version '1.10.0'
 }
 
 group = 'com.booleanuk'
@@ -36,4 +37,24 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+azurewebapp {
+	subscription = '<Insert Subscription Here>'
+	resourceGroup = 'students_infrastructure'
+	appName = 'StarWarsApp-Thomas'
+	pricingTier = 'F1'
+	region = 'northeurope'
+	appServicePlanName = 'ASP-studentsinfrastructure-a6a0'
+	runtime {
+		os = 'Linux'
+		webContainer = 'Java SE' // or 'Java SE' if you want to run an executable jar
+		javaVersion = 'Java 21'
+	}
+	appSettings {
+		alwaysOn = "off"
+	}
+	auth {
+		type = 'azure_cli' // support azure_cli, oauth2, device_code and service_principal
+	}
 }
