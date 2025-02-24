@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.booleanuk'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	toolchain {
@@ -40,8 +40,8 @@ tasks.named('test') {
 }
 
 azurewebapp {
-	subscription = '<Insert Subscription Here>'
-	resourceGroup = 'students_infrastructure'
+	subscription = 'e402df73-1b09-4bfc-94f6-214ae8c48784'
+	resourceGroup = 'App-Thomas'
 	appName = 'StarWarsApp-Thomas'
 	pricingTier = 'F1'
 	region = 'northeurope'

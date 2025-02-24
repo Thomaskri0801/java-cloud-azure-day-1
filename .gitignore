@@ -37,3 +37,6 @@ out/
 .vscode/
 
 application.yml
+
+azure-tf-server
+azure-tf-server.pub
